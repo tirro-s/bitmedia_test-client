@@ -1,0 +1,17 @@
+.footer {
+  margin-top: 24px;
+  height: 57px;
+  background: #1C3B55;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    height: 57px;
+  }
+
+  &__logo {
+    font-size: 24px;
+  }
+}

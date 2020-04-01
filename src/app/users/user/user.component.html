@@ -1,0 +1,14 @@
+<section class="user">
+  <div class="container">
+    <div class="user__nav"><a [routerLink]="['/']">Main page</a> > <a [routerLink]="['/', 'users']">User satistics</a> > some user</div>
+  </div>
+  <div class="user__name">Samuel Frost</div>
+  <div class="user__label">Clicks</div>
+  <div class="user__graph">
+    <canvas #clicks></canvas>
+  </div>
+  <div class="user__label">Views</div>
+  <div class="user__graph">
+    <canvas #views></canvas>
+  </div>
+</section>

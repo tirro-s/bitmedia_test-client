@@ -1,0 +1,19 @@
+.header {
+  background: #3A80BA;
+  height: 72px;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    height: 72px;
+
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+}

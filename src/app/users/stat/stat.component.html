@@ -1,0 +1,56 @@
+<section class="stat">
+  <div class="container">
+    <div class="stat__nav"><a [routerLink]="['/']">Main page</a> > User satistics</div>
+    <div class="stat__title">Users statistics</div>
+    <div class="stat__table">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>IP address</th>
+            <th>Total clicks</th>
+            <th>Total page views</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let user of data.users" (click)="onUserSelect(user.id)">
+            <td>{{ user.id}}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email}}</td>
+            <td>{{ user.gender}}</td>
+            <td>{{ user.ip_address}}</td>
+            <td>{{ user.total_clicks}}</td>
+            <td>{{ user.total_views}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="pages">
+      <button
+        class="pages__nav pages__nav--left"
+        (click)="onPrevPage()"
+        [ngClass]="{'pages__nav--active': data.currentPage !== 1}"
+      ></button>
+
+      <button class="pages__button"
+        *ngFor="let page of pages"
+        [ngClass]="{'pages__button--active': page === data.currentPage}"
+        (click)="onSelectPage(page)"
+      >{{ page }}</button>
+
+      <button
+        class="pages__nav pages__nav--right pages__nav--active"
+        (click)="onNextPage()"
+        [ngClass]="{'pages__nav--active': data.currentPage !== data.totalPages}"
+      ></button>
+     </div>
+  </div>
+</section>

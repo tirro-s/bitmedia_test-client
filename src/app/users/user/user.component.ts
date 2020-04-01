@@ -12,8 +12,8 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
 })
 export class UserComponent implements  AfterViewInit {
 
-  @ViewChild('clicks', {static: false}) clicksRef: ElementRef;
-  @ViewChild('views', {static: false}) viewsRef: ElementRef;
+  @ViewChild('clicks') clicksRef: ElementRef;
+  @ViewChild('views') viewsRef: ElementRef;
 
   constructor(private statService: StatService, private route: ActivatedRoute) { }
 

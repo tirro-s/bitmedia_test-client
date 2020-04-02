@@ -56,7 +56,9 @@ export class StatComponent implements OnInit {
     this.userService.selectPage(page);
   }
 
-  onUserSelect(page: number) {
-    this.router.navigate(['users', page]);
+  onUserSelect(id: number, firstName: string, lastName: string) {
+
+    this.userService.userName$.next(firstName + ' ' + lastName);
+    this.router.navigate(['users', id]);
   }
 }

@@ -1,8 +1,26 @@
 <section class="user">
   <div class="container">
-    <div class="user__nav"><a [routerLink]="['/']">Main page</a> > <a [routerLink]="['/', 'users']">User satistics</a> > some user</div>
+    <div class="user__nav"><a [routerLink]="['/']">Main page</a> > <a [routerLink]="['/', 'users']">User satistics</a> > {{ userName }}</div>
   </div>
-  <div class="user__name">Samuel Frost</div>
+  <div class="user__group">
+    <div class="user__name"> {{ userName }}</div>
+    <div class="user__form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form__group">
+          <div class="form__control">
+            <input type="date" formControlName="startDate">
+          </div>
+          <div class="form__control">
+            <input type="date" value="2019-10-31" formControlName="endDate">
+          </div>
+          <div class="form__control">
+            <button type="submit" [disabled]="form.invalid">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="user__label">Clicks</div>
   <div class="user__graph">
     <canvas #clicks></canvas>

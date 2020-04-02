@@ -17,10 +17,16 @@
   }
 
   &__name {
-    margin-top: 24px;
     font-weight: bold;
     font-size: 32px;
     color: #1A1A1A;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
   }
 
   &__label {
@@ -35,4 +41,34 @@
     height: 300px;
   }
 
+}
+
+.form {
+  font-family: inherit;
+
+  &__group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__control {
+    margin-left: 10px;
+
+    input {
+      font-family: inherit;
+      height: 56px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    button {
+      width: 154px;
+      height: 56px;
+      background: #3A80BA;
+      border-radius: 8px;
+      color: white;
+    }
+  }
 }

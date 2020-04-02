@@ -1,15 +1,17 @@
 import { StatData } from '../interfaces/stat-data.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 import { User } from '../interfaces/user.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({providedIn: 'root'})
 export class UserService {
 
   usersChange$ = new Subject<StatData>();
+  userName$ = new BehaviorSubject<string>(null);
 
   users: User[] = [];
   currentPage = 1;
@@ -32,7 +34,7 @@ export class UserService {
 
   fetch() {
     if (this.users.length === 0) {
-      this.http.get<User[]>('http://localhost:3000/getuserstat').subscribe( users => {
+      this.http.get<User[]>(`${environment.apiUrl}api/getusers`).subscribe( users => {
         this.users = users;
         this.totalPages = Math.floor(this.users.length / this.itemsPerPage);
         this.usersChange$.next(this.createData());
